@@ -6,6 +6,9 @@ module.exports = {
 };
 
 function succeed(item) {
+  if (item.enhancement < 20) {
+    item.enhancement++;
+  }
   return { ...item };
 }
 
@@ -14,6 +17,7 @@ function fail(item) {
 }
 
 function repair(item) {
+  item.durability = 100;
   return { ...item };
 }
 
