@@ -71,3 +71,24 @@ describe('fail', () => {
         expect(testItem.enhancement).toBe(18);
     });
 });
+
+describe('get', () => {
+    it('should rename an item to include its enhancement value', () => {
+        let testItem = {
+            name: 'Mithril Hatchet',
+            enhancement: 10,
+            durability: 72
+        };
+        testItem = get(testItem);
+        expect(testItem.name).toBe('[+10] Mithril Hatchet');
+    })
+    it('should not rename items with 0 enhancement', () => {
+        let testItem = {
+            name: 'Throwing Knife',
+            enhancement: 0,
+            durability: 87
+        };
+        testItem = get(testItem);
+        expect(testItem.name).toBe('Throwing Knife');
+    })
+})
